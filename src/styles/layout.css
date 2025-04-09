@@ -1,0 +1,49 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Content area */
+.content {
+  min-height: calc(
+    100vh - 120px
+  ); /* Adjust depending on header/footer height */
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Optional fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Padding */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 15px 10px;
+  }
+}

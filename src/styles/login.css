@@ -1,0 +1,225 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login Container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* Card Styling */
+.login-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  animation: slideUp 0.6s ease-in-out;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: #777;
+  font-size: 14px;
+}
+
+.login-icon {
+  font-size: 40px;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+
+/* Input Groups */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
+}
+
+/* Password Toggle Button */
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me .checkbox-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.forgot-password a {
+  font-size: 14px;
+  color: #667eea;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Login Button */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #667eea;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #5a67d8;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider span {
+  padding: 0 10px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Social Login */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.social-btn.google {
+  background-color: #db4437;
+}
+
+.social-btn.facebook {
+  background-color: #4267b2;
+}
+
+.social-btn:hover {
+  opacity: 0.9;
+}
+
+/* Signup Prompt */
+.signup-prompt {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.signup-prompt a {
+  color: #667eea;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

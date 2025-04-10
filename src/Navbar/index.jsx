@@ -39,6 +39,9 @@ const Navbar = () => {
           <a href="/expired-medicines">Expired Medicines</a>
         </li>
         <li>
+          <a href="/user-exercise">Exercise</a>
+        </li>
+        <li>
           <a onClick={logOut}>Log Out</a>
         </li>
       </ul>

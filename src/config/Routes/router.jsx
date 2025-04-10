@@ -8,6 +8,7 @@ import Signup from "../../Signup";
 import AddMedicine from "../../AddMedicine";
 import AllMedicines from "../../AllMedicines";
 import ExpiredMedicines from "../../ExpiredMedicines";
+import Exercises from "../../Exercises";
 
 const router = createBrowserRouter([
   { path: "/", element: <MainDas /> },
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "add-medicine", element: <AddMedicine /> },
       { path: "medicines", element: <AllMedicines /> },
       { path: "expired-medicines", element: <ExpiredMedicines /> },
+      { path: "user-exercise", element: <Exercises /> },
     ],
   },
 ]);

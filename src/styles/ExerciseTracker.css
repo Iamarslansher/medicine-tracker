@@ -1,0 +1,94 @@
+.exercise-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.exercise-input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.exercise-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.exercise-input.reps {
+  width: 100px;
+}
+
+.exercise-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.exercise-button.add {
+  background: #4ade80;
+  color: white;
+}
+
+.exercise-button.done {
+  background: #3b82f6;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.exercise-button.delete {
+  background: #ef4444;
+  color: white;
+}
+
+.exercise-list {
+  list-style: none;
+  padding: 0;
+}
+
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.exercise-name {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.exercise-status.completed {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.exercise-status.not-completed {
+  color: #f97316;
+  font-weight: bold;
+}
+
+.exercise-empty {
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+}

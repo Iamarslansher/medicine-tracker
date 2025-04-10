@@ -7,6 +7,7 @@ const Dashboard = () => {
   const [userMedicines, setUserMedicines] = useState([]);
   const [nearExpireMed, setnearExpireMed] = useState(0);
   const [expireMed, setExpireMed] = useState(0);
+  const [activeMed, setActiveMed] = useState(0);
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -32,14 +33,23 @@ const Dashboard = () => {
   const handleMedicines = () => {
     let near = 0;
     let expire = 0;
+    let active = 0;
     userMedicines.forEach((element) => {
+      // active
+      if (new Date(element.expiryDate) > new Date()) {
+        active += 1;
+      }
+      // near expired
       if (element.totalDays <= 2) {
         near += 1;
       }
+      // expired
       if (new Date(element.expiryDate) <= new Date()) {
         expire += 1;
       }
     });
+
+    setActiveMed(active);
     setnearExpireMed(near);
     setExpireMed(expire);
   };
@@ -68,7 +78,7 @@ const Dashboard = () => {
         </div>
         <div className="stat-card">
           <h3>✅ Active</h3>
-          <p>7</p>
+          <p>{activeMed}</p>
         </div>
       </div>
     </div>

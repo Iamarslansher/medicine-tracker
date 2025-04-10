@@ -29,6 +29,14 @@ const ExpiredMedicines = () => {
   const handleDelete = async (medicineID) => {
     try {
       await deleteMedi({ medicineID, userID });
+      const medicines = await getMedicines(userID);
+      let expired = [];
+      medicines.forEach((medicine) => {
+        if (new Date(medicine.expiryDate) <= new Date()) {
+          expired.push(medicine);
+        }
+      });
+      setMedicines(expired);
       console.log("Medicine deleted");
     } catch (error) {
       console.log(error);
@@ -40,10 +48,15 @@ const ExpiredMedicines = () => {
       <h2>
         <FaTimesCircle /> Expired Medicines
       </h2>
+      {medicines.length === 0 && <h2>No Expired Medicines Yet!</h2>}
       {medicines.map((medicine) => (
         <ul key={medicine.id}>
           <li>
-            Aspirin - Expired on: <strong>{medicine.expiryDate}</strong>
+            <h4>{medicine.medicineName}</h4>
+
+            <span>
+              Aspirin - Expired on: <strong>{medicine.expiryDate}</strong>
+            </span>
             <FaTrash
               onClick={() => handleDelete(medicine.medicineID)}
               style={{ fontSize: "30px" }}

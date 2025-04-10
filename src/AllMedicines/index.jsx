@@ -23,6 +23,8 @@ const MedicineList = () => {
   const handleDelete = async (medicineID) => {
     try {
       await deleteMedi({ medicineID, userID });
+      const medicines = await getMedicines(userID);
+      setMedicines(medicines);
       console.log("Medicine deleted");
     } catch (error) {
       console.log(error);

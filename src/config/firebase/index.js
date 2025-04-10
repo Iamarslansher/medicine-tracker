@@ -14,6 +14,8 @@ import {
   updateDoc,
   getDocs,
   deleteDoc,
+  where,
+  query,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -152,9 +154,91 @@ export const deleteMedi = async (medId) => {
         alert("Deleted");
       }
     });
-
     return;
   } catch (error) {
     console.log(error.message);
+  }
+};
+
+// Add user exercise
+export const addExerciseToFirestore = async (exeInfo) => {
+  const { userID, exerciseName, exerciseReps, date } = exeInfo;
+  console.log({
+    userID,
+    exerciseName,
+    exerciseReps,
+    date,
+  });
+  try {
+    const exercisesRef = collection(
+      db,
+      "exercise-routines",
+      userID,
+      "exercises"
+    );
+    const data = {
+      ...exeInfo,
+      completed: false,
+    };
+    const docRef = await addDoc(exercisesRef, data);
+    await updateDoc(docRef, {
+      exerciseID: docRef.id,
+    });
+    console.log("eexercise added");
+  } catch (error) {
+    console.error("Error adding exercise:", error);
+  }
+};
+
+// 🔁 Fetch exercises for today
+export const fetchExercisesForToday = async (info) => {
+  const { userID, date } = info;
+  try {
+    const exercisesRef = collection(
+      db,
+      "exercise-routines",
+      userID,
+      "exercises"
+    );
+    // const qury = query(exercisesRef, where("date", "==", date));
+    const snapshot = await getDocs(exercisesRef);
+    return snapshot.docs.map((doc) => ({
+      ...doc.data(),
+    }));
+  } catch (error) {
+    console.error("Error fetching exercises:", error);
+    return [];
+  }
+};
+
+// ✅ Mark exercise as completed
+export const markExerciseCompleted = async (userID, exerciseId) => {
+  try {
+    const docRef = doc(
+      db,
+      "exercise-routines",
+      userID,
+      "exercises",
+      exerciseId
+    );
+    await updateDoc(docRef, { completed: true });
+  } catch (error) {
+    console.error("Error marking exercise completed:", error);
+  }
+};
+
+// ❌ Delete exercise
+export const deleteExerciseFromFirestore = async (userID, exerciseId) => {
+  try {
+    const docRef = doc(
+      db,
+      "exercise-routines",
+      userID,
+      "exercises",
+      exerciseId
+    );
+    await deleteDoc(docRef);
+  } catch (error) {
+    console.error("Error deleting exercise:", error);
   }
 };
